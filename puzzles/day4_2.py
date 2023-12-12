@@ -15,10 +15,9 @@ if __name__ == "__main__":
     while len(cards):
         this_card = cards.pop()
         copies_won = this_card.get_score()
-        if copies_won:
-            for i in range(this_card.index + 1, this_card.index + copies_won + 1):
-                line = linecache.getline('../inputs/day4.txt', i)
-                cards.append(Card(line))
-                card_count += 1
+        for i in range(this_card.index + 1, this_card.index + copies_won + 1):
+            line = linecache.getline('../inputs/day4.txt', i)
+            cards.append(Card(line))
+            card_count += 1
 
     print(f"The answer to day 4-2 is: {card_count}")
